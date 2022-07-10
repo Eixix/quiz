@@ -1,22 +1,30 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
-    },
-    "devDependencies": {
-        "@inertiajs/inertia": "^0.11.0",
-        "@inertiajs/inertia-vue3": "^0.6.0",
-        "@inertiajs/progress": "^0.2.7",
-        "@tailwindcss/forms": "^0.5.2",
-        "@vitejs/plugin-vue": "^2.3.3",
-        "autoprefixer": "^10.4.2",
-        "axios": "^0.27",
-        "laravel-vite-plugin": "^0.3.0",
-        "lodash": "^4.17.19",
-        "postcss": "^8.4.6",
-        "tailwindcss": "^3.1.5",
-        "vite": "^2.9.11",
-        "vue": "^3.2.31"
-    }
+  "private": true,
+  "scripts": {
+    "serve": "vite preview",
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@mdi/font": "5.9.55",
+    "roboto-fontface": "*",
+    "vuetify": "^3.0.0-beta.0",
+    "webfontloader": "^1.0.0"
+  },
+  "devDependencies": {
+    "@inertiajs/inertia": "^0.11.0",
+    "@inertiajs/inertia-vue3": "^0.6.0",
+    "@inertiajs/progress": "^0.2.7",
+    "@tailwindcss/forms": "^0.5.2",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "autoprefixer": "^10.4.2",
+    "axios": "^0.27",
+    "laravel-vite-plugin": "^0.3.0",
+    "lodash": "^4.17.19",
+    "postcss": "^8.4.6",
+    "vite": "^2.9.11",
+    "vite-plugin-vuetify": "^1.0.0-alpha.0",
+    "vue": "^3.2.31",
+    "vue-cli-plugin-vuetify": "~2.5.1"
+  }
 }
