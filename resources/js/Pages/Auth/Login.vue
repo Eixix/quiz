@@ -1,7 +1,7 @@
 <script setup>
 import BreezeButton from '@/Components/Button.vue';
 import BreezeCheckbox from '@/Components/Checkbox.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
+import GuestLayout from '@/Layouts/Guest.vue';
 import BreezeInput from '@/Components/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
@@ -26,8 +26,8 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
-        <Head title="Log in" />
+    <GuestLayout>
+        <Head><title>Login</title></Head>
 
         <BreezeValidationErrors class="mb-4" />
 
@@ -63,5 +63,5 @@ const submit = () => {
                 </BreezeButton>
             </div>
         </form>
-    </BreezeGuestLayout>
+    </GuestLayout>
 </template>

@@ -6,16 +6,18 @@
     "dev": "vite"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@mdi/font": "5.9.55",
     "roboto-fontface": "*",
+    "sass": "^1.53.0",
     "vuetify": "^3.0.0-beta.0",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
     "@inertiajs/inertia": "^0.11.0",
     "@inertiajs/inertia-vue3": "^0.6.0",
     "@inertiajs/progress": "^0.2.7",
-    "@tailwindcss/forms": "^0.5.2",
     "@vitejs/plugin-vue": "^2.3.3",
     "autoprefixer": "^10.4.2",
     "axios": "^0.27",

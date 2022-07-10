@@ -1,14 +1,17 @@
 import './bootstrap';
-import '../css/app.css';
+import '../css/app.scss';
 
-import { createApp, h } from 'vue';
-import { createInertiaApp } from '@inertiajs/inertia-vue3';
-import { InertiaProgress } from '@inertiajs/progress';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
-import { createVuetify } from 'vuetify'
+import {createApp, h} from 'vue';
+import {createInertiaApp} from '@inertiajs/inertia-vue3';
+import {InertiaProgress} from '@inertiajs/progress';
+import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
+import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
+import {createVuetify} from 'vuetify'
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
+import { aliases, fa } from 'vuetify/iconsets/fa'
+import '@fortawesome/fontawesome-free/css/all.css'
+import 'vuetify/styles'
 
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
@@ -16,9 +19,17 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
-    setup({ el, app, props, plugin }) {
-        const vuetify = createVuetify({components, directives});
-        return createApp({ render: () => h(app, props) })
+    setup({el, app, props, plugin}) {
+        const vuetify = createVuetify({
+            components, directives, icons: {
+                defaultSet: 'fa',
+                aliases,
+                sets: {
+                    fa,
+                }
+            },
+        });
+        return createApp({render: () => h(app, props)})
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(vuetify)
@@ -26,4 +37,4 @@ createInertiaApp({
     },
 });
 
-InertiaProgress.init({ color: '#4B5563' });
+InertiaProgress.init({color: '#4B5563'});
