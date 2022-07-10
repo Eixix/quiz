@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Enums\QuestionType;
+use App\Models\Enums\RenderType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +15,11 @@ class Question extends Model
         'question',
         'type',
         'render_type',
+    ];
+
+    protected $casts = [
+        'type' => QuestionType::class,
+        'redner_type' => RenderType::class,
     ];
 
     public function quiz()
