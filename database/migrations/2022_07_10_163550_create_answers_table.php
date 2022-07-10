@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('answer');
             $table->boolean('is_correct');
             $table->enum('render_type', RenderType::values());
-            $table->foreignId('question')->constrained();
+            $table->foreignId('question_id')->constrained();
             $table->timestamps();
         });
     }
