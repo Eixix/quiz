@@ -30,7 +30,7 @@ import {Link} from '@inertiajs/inertia-vue3';
             </v-list>
 
             <template v-slot:append>
-                <Link :href="route('logout')" method="post">
+                <Link :href="route('logout')" method="post" as="button">
                     <div class="pa-2">
                         <v-btn block>
                             Logout
