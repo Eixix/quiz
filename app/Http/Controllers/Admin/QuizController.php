@@ -16,7 +16,9 @@ class QuizController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Quiz');
+        return Inertia::render('Quiz/Index', [
+            'quizzes' => Quiz::all(),
+        ]);
     }
 
     /**
@@ -26,7 +28,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Quiz/Create');
     }
 
     /**
@@ -39,6 +41,8 @@ class QuizController extends Controller
     {
         $quiz = new Quiz($request->all());
         $quiz->save();
+
+        return redirect()->to(route('quiz.index'));
     }
 
     /**
@@ -49,7 +53,9 @@ class QuizController extends Controller
      */
     public function show(Quiz $quiz)
     {
-        //
+        return Inertia::render('Quiz/Show', [
+            'quiz' => $quiz,
+        ]);
     }
 
     /**

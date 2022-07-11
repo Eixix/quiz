@@ -23,14 +23,20 @@ import {Link} from '@inertiajs/inertia-vue3';
                     <v-list-item
                         :active="route().current('dashboard')"
                         prepend-icon="fas fa-home"
-                        title="Dashboard"
-                        value="inbox">
+                        title="Dashboard">
+                    </v-list-item>
+                </Link>
+                <Link :href="route('quiz.index')">
+                    <v-list-item
+                        :active="route().current('quiz.*')"
+                        prepend-icon="fas fa-question"
+                        title="Quiz">
                     </v-list-item>
                 </Link>
             </v-list>
 
             <template v-slot:append>
-                <Link :href="route('logout')" method="post">
+                <Link :href="route('logout')" method="post" as="button">
                     <div class="pa-2">
                         <v-btn block>
                             Logout

@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\QuizController;
-use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,12 +16,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('Welcome');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -31,10 +24,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::controller(QuizController::class)->group(function () {
-        Route::get('/quiz', 'index')->name('quiz.index');
-        Route::post('/quiz', 'store')->name('quiz.store');
-    });
+    Route::resource('quiz', QuizController::class);
 });
 
 require __DIR__ . '/auth.php';
