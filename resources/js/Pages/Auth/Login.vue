@@ -54,7 +54,6 @@ const rules = {
                 :append-icon="showPassword ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
                 :rules="[rules.required, rules.min]"
                 :type="showPassword ? 'text' : 'password'"
-                name="input-10-1"
                 label="Password"
                 hint="At least 8 characters"
                 counter
