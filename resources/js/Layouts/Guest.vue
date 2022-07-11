@@ -1,15 +1,13 @@
 <script setup>
-import BreezeApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/inertia-vue3';
 </script>
 
 <template>
-    <v-app>
+    <v-app theme="dark">
         <!-- Sizes your content based upon application components -->
         <v-main>
             <!-- Provides the application the proper gutter -->
             <v-container>
-                <slot name="content"/>
+                <slot />
             </v-container>
         </v-main>
 

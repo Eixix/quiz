@@ -1,10 +1,9 @@
 <script setup>
-import {Link} from '@inertiajs/inertia-vue3';
-
+import { Link } from '@inertiajs/inertia-vue3';
 </script>
 
 <template>
-    <v-app>
+    <v-app theme="dark">
         <v-navigation-drawer
             image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
             permanent=""
@@ -46,7 +45,7 @@ import {Link} from '@inertiajs/inertia-vue3';
 
             <!-- Provides the application the proper gutter -->
             <v-container fluid>
-                <slot name="content"/>
+                <slot />
             </v-container>
         </v-main>
 
