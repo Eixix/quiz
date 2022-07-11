@@ -1,9 +1,6 @@
 <script setup>
-import BreezeButton from '@/Components/Button.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
-import BreezeInput from '@/Components/Input.vue';
-import BreezeLabel from '@/Components/Label.vue';
-import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
+import GuestLayout from '@/Layouts/Guest.vue';
+import ValidationErrors from '@/Components/ValidationErrors.vue';
 import { Head, useForm } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
@@ -23,35 +20,60 @@ const submit = () => {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
 };
+
+const showPassword = ref(false);
+const rules = {
+    required: value => !!value || 'Required.',
+    min: v => v.length >= 8 || 'Min 8 characters',
+}
 </script>
 
 <template>
-    <BreezeGuestLayout>
-        <Head title="Reset Password" />
+    <GuestLayout>
+        <Head><title>Reset Password</title></Head>
 
-        <BreezeValidationErrors class="mb-4" />
+        <ValidationErrors class="mb-4" />
 
-        <form @submit.prevent="submit">
-            <div>
-                <BreezeLabel for="email" value="Email" />
-                <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
-            </div>
+        <v-form @submit.prevent="submit">
+            <v-text-field
+                prepend-inner-icon="fa-solid fa-envelope"
+                v-model="form.email"
+                label="Email"
+                required
+                autofocus=""
+                autocomplete="username"
+            ></v-text-field>
 
-            <div class="mt-4">
-                <BreezeLabel for="password" value="Password" />
-                <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
-            </div>
+            <v-text-field
+                prepend-inner-icon="fa-solid fa-key"
+                v-model="form.password"
+                :append-icon="showPassword ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
+                :rules="[rules.required, rules.min]"
+                :type="showPassword ? 'text' : 'password'"
+                label="Password"
+                hint="At least 8 characters"
+                counter
+                required
+                @click:append="showPassword = !showPassword"
+            ></v-text-field>
 
-            <div class="mt-4">
-                <BreezeLabel for="password_confirmation" value="Confirm Password" />
-                <BreezeInput id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
-            </div>
+            <v-text-field
+                prepend-inner-icon="fa-solid fa-key"
+                v-model="form.password_confirmation"
+                :rules="[rules.required, rules.min]"
+                type="password"
+                label="Password confirm"
+                counter
+                required
+            ></v-text-field>
 
-            <div class="flex items-center justify-end mt-4">
-                <BreezeButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Reset Password
-                </BreezeButton>
-            </div>
-        </form>
-    </BreezeGuestLayout>
+            <v-btn
+                type="submit"
+                :disabled="form.processing"
+                color="primary"
+            >
+                Reset Password
+            </v-btn>
+        </v-form>
+    </GuestLayout>
 </template>
