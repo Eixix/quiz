@@ -1,7 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import BreezeButton from '@/Components/Button.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
+import GuestLayout from '@/Layouts/Guest.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
@@ -18,25 +17,33 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 </script>
 
 <template>
-    <BreezeGuestLayout>
-        <Head title="Email Verification" />
+    <GuestLayout>
+        <Head><title>Email Verification</title></Head>
 
-        <div class="mb-4 text-sm text-gray-600">
+        <v-alert border="">
             Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
-        </div>
+        </v-alert>
 
-        <div class="mb-4 font-medium text-sm text-green-600" v-if="verificationLinkSent" >
+        <v-alert border="" v-if="verificationLinkSent" >
             A new verification link has been sent to the email address you provided during registration.
-        </div>
+        </v-alert>
 
-        <form @submit.prevent="submit">
-            <div class="mt-4 flex items-center justify-between">
-                <BreezeButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Resend Verification Email
-                </BreezeButton>
+        <v-form @submit.prevent="submit">
+            <v-btn
+                type="submit"
+                :disabled="form.processing"
+                color="primary"
+            >
+                Resend Verification Email
+            </v-btn>
 
-                <Link :href="route('logout')" method="post" as="button" class="underline text-sm text-gray-600 hover:text-gray-900">Log Out</Link>
-            </div>
-        </form>
-    </BreezeGuestLayout>
+            <Link :href="route('logout')" method="post" as="button">
+                <v-btn
+                    color="secondary"
+                >
+                    Log Out
+                </v-btn>
+            </Link>
+        </v-form>
+    </GuestLayout>
 </template>
