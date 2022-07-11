@@ -30,7 +30,6 @@ const rules = {
 
 <template>
     <GuestLayout>
-        <template v-slot:content>
             <Head><title>Login</title></Head>
 
             <BreezeValidationErrors class="mb-4"/>
@@ -85,6 +84,5 @@ const rules = {
                     Login
                 </v-btn>
             </v-form>
-        </template>
     </GuestLayout>
 </template>
