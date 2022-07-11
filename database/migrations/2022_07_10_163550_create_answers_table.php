@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Enums\RenderType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->string('answer');
             $table->boolean('is_correct');
-            $table->enum('render_type', ['text', 'image']);
-            $table->foreignId('question')->constrained();
+            $table->enum('render_type', RenderType::values());
+            $table->foreignId('question_id')->constrained();
             $table->timestamps();
         });
     }
