@@ -24,8 +24,16 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+    Route::get('/room', function () {
+        return Inertia::render('Room/Index');
+    })->name('room.index');
+    Route::post('/room', function () {
+        return Inertia::render('Room/Create');
+    })->name('room.create');
+});
 
 require __DIR__.'/auth.php';

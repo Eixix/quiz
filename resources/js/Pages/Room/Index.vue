@@ -4,7 +4,7 @@ import {Head} from '@inertiajs/inertia-vue3';
 </script>
 
 <template>
-    <Head><title>Dashboard</title></Head>
+    <Head><title>Create Room</title></Head>
 
     <AuthenticatedLayout>
         Dashboard here!

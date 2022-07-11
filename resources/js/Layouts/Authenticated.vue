@@ -29,8 +29,19 @@ import {Link} from '@inertiajs/inertia-vue3';
                 </Link>
             </v-list>
 
+            <v-list nav>
+                <Link :href="route('room.index')">
+                    <v-list-item
+                        :active="route().current('room.*')"
+                        prepend-icon="fas fa-person-booth"
+                        title="Room"
+                        value="inbox">
+                    </v-list-item>
+                </Link>
+            </v-list>
+
             <template v-slot:append>
-                <Link :href="route('logout')" method="post">
+                <Link :href="route('logout')" method="post" as="button">
                     <div class="pa-2">
                         <v-btn block>
                             Logout
