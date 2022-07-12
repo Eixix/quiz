@@ -1,8 +1,8 @@
 <script setup>
 import GuestLayout from '@/Layouts/Guest.vue';
 import ValidationErrors from '@/Components/ValidationErrors.vue';
-import {Head, Link, useForm} from '@inertiajs/inertia-vue3';
-import {ref} from "vue";
+import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import { ref } from "vue";
 
 defineProps({
     canResetPassword: Boolean,
@@ -25,7 +25,7 @@ const showPassword = ref(false);
 const rules = {
     required: value => !!value || 'Required.',
     min: v => v.length >= 8 || 'Min 8 characters',
-}
+};
 </script>
 
 <template>
@@ -34,7 +34,7 @@ const rules = {
 
         <ValidationErrors class="mb-2"/>
 
-        <div v-if="status">
+        <div v-if="status" class="mb-2">
             {{ status }}
         </div>
 
@@ -68,11 +68,7 @@ const rules = {
             ></v-checkbox>
 
             <Link v-if="canResetPassword" :href="route('password.request')">
-                <v-btn
-                    color="secondary"
-                >
-                    Forgot your password?
-                </v-btn>
+                <v-btn color="secondary">Forgot your password?</v-btn>
             </Link>
 
             <v-btn

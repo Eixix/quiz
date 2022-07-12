@@ -25,14 +25,14 @@ const showPassword = ref(false);
 const rules = {
     required: value => !!value || 'Required.',
     min: v => v.length >= 8 || 'Min 8 characters',
-}
+};
 </script>
 
 <template>
     <GuestLayout>
         <Head><title>Reset Password</title></Head>
 
-        <ValidationErrors class="mb-4" />
+        <ValidationErrors class="mb-2" />
 
         <v-form @submit.prevent="submit">
             <v-text-field

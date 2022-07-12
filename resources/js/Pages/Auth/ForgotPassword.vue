@@ -20,15 +20,15 @@ const submit = () => {
     <GuestLayout>
         <Head><title>Forgot Password</title></Head>
 
-        <v-alert border="" class="mb-4">
+        <v-alert border="" class="mb-2">
             Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
         </v-alert>
 
-        <v-alert v-if="status" border="" class="mb-4">
+        <v-alert v-if="status" border="" class="mb-2">
             {{ status }}
         </v-alert>
 
-        <ValidationErrors class="mb-4" />
+        <ValidationErrors class="mb-2" />
 
         <v-form @submit.prevent="submit">
             <v-text-field

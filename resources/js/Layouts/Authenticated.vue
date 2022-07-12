@@ -1,5 +1,5 @@
 <script setup>
-import {Link} from '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/inertia-vue3';
 </script>
 
 <template>
@@ -38,9 +38,7 @@ import {Link} from '@inertiajs/inertia-vue3';
             <template v-slot:append>
                 <Link :href="route('logout')" method="post" as="button">
                     <div class="pa-2">
-                        <v-btn block>
-                            Logout
-                        </v-btn>
+                        <v-btn block>Logout</v-btn>
                     </div>
                 </Link>
             </template>

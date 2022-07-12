@@ -1,7 +1,7 @@
 <script setup>
 import GuestLayout from '@/Layouts/Guest.vue';
 import ValidationErrors from '@/Components/ValidationErrors.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 import { ref } from "vue";
 
 const form = useForm({
@@ -22,12 +22,12 @@ const showPassword = ref(false);
 const rules = {
     required: value => !!value || 'Required.',
     min: v => v.length >= 8 || 'Min 8 characters',
-}
+};
 </script>
 
 <template>
     <GuestLayout>
-        <Head title="Register" />
+        <Head><title>Register</title></Head>
 
         <ValidationErrors class="mb-2" />
 

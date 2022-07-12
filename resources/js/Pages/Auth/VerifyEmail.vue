@@ -20,13 +20,15 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
     <GuestLayout>
         <Head><title>Email Verification</title></Head>
 
-        <v-alert border="">
+        <v-alert border="" class="mb-2">
             Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
         </v-alert>
 
-        <v-alert border="" v-if="verificationLinkSent" >
+        <v-alert border="" v-if="verificationLinkSent" class="mb-2">
             A new verification link has been sent to the email address you provided during registration.
         </v-alert>
+
+        <ValidationErrors class="mb-2" />
 
         <v-form @submit.prevent="submit">
             <v-btn
@@ -38,11 +40,7 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
             </v-btn>
 
             <Link :href="route('logout')" method="post" as="button">
-                <v-btn
-                    color="secondary"
-                >
-                    Log Out
-                </v-btn>
+                <v-btn color="secondary">Log Out</v-btn>
             </Link>
         </v-form>
     </GuestLayout>
