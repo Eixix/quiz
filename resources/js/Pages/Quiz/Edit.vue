@@ -3,12 +3,16 @@ import AuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import ValidationErrors from '@/Components/ValidationErrors.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 
+const props = defineProps({
+    quiz: Object,
+});
+
 const form = useForm({
-    title: '',
+    title: props.quiz.title,
 });
 
 const submit = () => {
-    form.post(route('quiz.store'), {
+    form.put(route('quiz.update', props.quiz.id), {
         onFinish: () => form.reset('title'),
     });
 };
@@ -18,7 +22,7 @@ const submit = () => {
     <AuthenticatedLayout>
         <Head><title>Quiz - Create</title></Head>
 
-        <Link :href="route('quiz.index')">
+        <Link :href="route('quiz.show', quiz.id)">
             <v-btn color="primary">Back</v-btn>
         </Link>
 
@@ -38,7 +42,7 @@ const submit = () => {
                 :disabled="form.processing"
                 color="primary"
             >
-                Create
+                Edit
             </v-btn>
         </v-form>
     </AuthenticatedLayout>

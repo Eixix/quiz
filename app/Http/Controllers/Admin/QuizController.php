@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreQuizRequest;
+use App\Http\Requests\UpdateQuizRequest;
 use App\Models\Quiz;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class QuizController extends Controller
@@ -37,12 +39,12 @@ class QuizController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreQuizRequest $request)
     {
-        $quiz = new Quiz($request->all());
+        $quiz = new Quiz($request->validated());
         $quiz->save();
 
-        return redirect()->to(route('quiz.index'));
+        return Redirect::route('quiz.index');
     }
 
     /**
@@ -66,7 +68,9 @@ class QuizController extends Controller
      */
     public function edit(Quiz $quiz)
     {
-        //
+        return Inertia::render('Quiz/Edit', [
+            'quiz' => $quiz,
+        ]);
     }
 
     /**
@@ -76,9 +80,11 @@ class QuizController extends Controller
      * @param  \App\Models\Quiz  $quiz
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Quiz $quiz)
+    public function update(UpdateQuizRequest $request, Quiz $quiz)
     {
-        //
+        $quiz->update($request->validated());
+
+        return Redirect::route('quiz.show', $quiz);
     }
 
     /**
@@ -89,6 +95,10 @@ class QuizController extends Controller
      */
     public function destroy(Quiz $quiz)
     {
-        //
+        if ($quiz->questions->count() == 0) {
+            $quiz->delete();
+        }
+
+        return Redirect::route('quiz.index');
     }
 }
