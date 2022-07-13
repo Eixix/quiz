@@ -1,5 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import TopBar from '@/Components/TopBar.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
 defineProps({
@@ -11,9 +12,13 @@ defineProps({
     <AuthenticatedLayout>
         <Head><title>Quiz</title></Head>
 
-        <Link :href="route('quiz.create')">
-            <v-btn color="primary">Create</v-btn>
-        </Link>
+        <template v-slot:top-bar>
+            <TopBar title="Quiz">
+                <Link :href="route('quiz.create')">
+                    <v-btn color="primary">Create</v-btn>
+                </Link>
+            </TopBar>
+        </template>
 
         <v-table class="mt-2">
             <thead>

@@ -1,7 +1,8 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import TopBar from '@/Components/TopBar.vue';
 import ValidationErrors from '@/Components/ValidationErrors.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/inertia-vue3';
 
 const form = useForm({
     title: '',
@@ -18,9 +19,9 @@ const submit = () => {
     <AuthenticatedLayout>
         <Head><title>Quiz - Create</title></Head>
 
-        <Link :href="route('quiz.index')">
-            <v-btn color="primary">Back</v-btn>
-        </Link>
+        <template v-slot:top-bar>
+            <TopBar title="Create Quiz" :back="route('quiz.index')" />
+        </template>
 
         <ValidationErrors class="mt-2" />
 

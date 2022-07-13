@@ -57,6 +57,7 @@ class QuizController extends Controller
     {
         return Inertia::render('Quiz/Show', [
             'quiz' => $quiz,
+            'questions' => $quiz->questions->load('answers'),
         ]);
     }
 

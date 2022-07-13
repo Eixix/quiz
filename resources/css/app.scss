@@ -35,3 +35,14 @@ a {
 .ml-2 {
     margin-left: 2rem;
 }
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.6rem;
+    border-bottom: 1px solid white;
+}

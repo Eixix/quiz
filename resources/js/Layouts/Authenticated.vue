@@ -46,10 +46,11 @@ import { Link } from '@inertiajs/inertia-vue3';
 
         <!-- Sizes your content based upon application components -->
         <v-main>
+            <slot name="top-bar" />
 
             <!-- Provides the application the proper gutter -->
             <v-container fluid>
-                <slot/>
+                <slot />
             </v-container>
         </v-main>
 
