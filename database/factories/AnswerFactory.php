@@ -21,7 +21,7 @@ class AnswerFactory extends Factory
     public function definition()
     {
         return [
-            'answer' => $this->faker->words(3, true),
+            'answer' => $this->faker->words(3, true) . '.',
             'is_correct' => $this->faker->boolean(),
             'render_type' => $this->faker->randomElement(RenderType::cases()),
         ];

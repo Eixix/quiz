@@ -22,7 +22,7 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'question' => $this->faker->words(3, true),
+            'question' => $this->faker->words(3, true) . '?',
             'type' => $this->faker->randomElement(QuestionType::cases()),
             'render_type' => $this->faker->randomElement(RenderType::cases()),
         ];
