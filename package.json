@@ -9,7 +9,7 @@
     "-": "^0.0.1",
     "@mdi/font": "7.0.96",
     "roboto-fontface": "*",
-    "sass": "^1.53.0",
+    "sass": "^1.54.0",
     "vuetify": "^3.0.0-beta.0",
     "webfontloader": "^1.0.0"
   },
@@ -25,7 +25,7 @@
     "lodash": "^4.17.19",
     "postcss": "^8.4.6",
     "vite": "^2.9.11",
-    "vite-plugin-vuetify": "^1.0.0-alpha.0",
+    "vite-plugin-vuetify": "^1.0.0-alpha.13",
     "vue": "^3.2.31",
     "vue-cli-plugin-vuetify": "~2.5.1"
   }
