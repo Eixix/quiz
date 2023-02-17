@@ -9,7 +9,7 @@
     "-": "^0.0.1",
     "@mdi/font": "7.0.96",
     "roboto-fontface": "*",
-    "sass": "^1.54.0",
+    "sass": "^1.58.2",
     "vuetify": "^3.0.0-beta.0",
     "webfontloader": "^1.0.0"
   },
